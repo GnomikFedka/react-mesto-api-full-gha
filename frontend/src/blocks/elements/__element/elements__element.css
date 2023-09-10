@@ -1,0 +1,9 @@
+.elements__element {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 282px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}

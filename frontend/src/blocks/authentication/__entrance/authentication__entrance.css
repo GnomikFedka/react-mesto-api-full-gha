@@ -1,0 +1,11 @@
+.authentication__entrance {
+  color: rgb(255, 255, 255, 1);
+  text-decoration: none;
+  transition: opacity 0.2s;
+  align-self: center;
+  margin-top: 15px;
+}
+
+.authentication__entrance:hover {
+  opacity: 0.6;
+}

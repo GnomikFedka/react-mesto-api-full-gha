@@ -1,0 +1,15 @@
+.authentication__input {
+  padding: 6px 0 6px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgb(255, 255, 255, 1);
+  border: none;
+  border-bottom: 2px solid rgba(204, 204, 204, 1);
+  background-color: transparent;
+  margin: 0px;
+}
+
+.authentication__input::placeholder {
+  color: rgba(204, 204, 204, 1);
+}

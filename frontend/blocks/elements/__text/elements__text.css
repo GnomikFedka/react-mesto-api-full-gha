@@ -1,0 +1,14 @@
+.elements__text {
+    color: #000000;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    justify-content: center;
+    align-self: center;
+    line-height: 29px;
+    width: 194px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 25px 0 31px 18px;
+}

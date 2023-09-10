@@ -1,0 +1,16 @@
+.elements__button-like {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    border: none;
+    background-color: #FFFFFF;
+    width: 22px;
+    height: 19px;
+    background-image: url(../../../images/like.svg);
+    margin: 0;
+}
+
+.elements__button-like:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}

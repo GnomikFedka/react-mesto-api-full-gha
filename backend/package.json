@@ -1,0 +1,47 @@
+{
+  "name": "13job",
+  "version": "1.0.0",
+  "description": "13job",
+  "main": "app.js",
+  "scripts": {
+    "test": "cd",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "npx eslint .",
+    "contentType": "application/json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/GnomikFedka/express-mesto-gha.git"
+  },
+  "keywords": [
+    "13job"
+  ],
+  "author": "Fedor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GnomikFedka/express-mesto-gha/issues"
+  },
+  "homepage": "https://github.com/GnomikFedka/express-mesto-gha#readme",
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "celebrate": "^15.0.1",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.10.0",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.3.1",
+    "validator": "^13.9.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}

@@ -1,0 +1,17 @@
+.elements__delete-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    background-color: transparent;
+    width: 18px;
+    height: 19px;
+    background-image: url(../../../images/trashcan.svg);
+    padding: 0;
+    z-index: 3;
+  }
+  
+  .elements__delete-button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }

@@ -1,0 +1,20 @@
+.header__sign {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    transition: opacity 0.2s;
+    margin-top: 12px;
+  }
+  
+  .header__sign:hover {
+    opacity: 0.6;
+  }
+  
+  @media (max-width: 568px) {
+    .header__sign {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }

@@ -1,0 +1,9 @@
+.header__sign_exit {
+  color: rgba(169, 169, 169, 1);
+}
+
+@media (max-width: 568px) {
+  .header__sign_exit {
+    display: none;
+  }
+}

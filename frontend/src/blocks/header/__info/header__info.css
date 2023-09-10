@@ -1,0 +1,5 @@
+.header__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

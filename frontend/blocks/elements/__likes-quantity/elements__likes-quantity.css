@@ -1,0 +1,15 @@
+.elements__likes-quantity {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    color: #000000;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    width: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 3px 0 0 0;
+}
