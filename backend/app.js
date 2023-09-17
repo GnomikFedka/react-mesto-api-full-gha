@@ -1,23 +1,32 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const { errors } = require('celebrate');
+const { errors, Joi, celebrate } = require('celebrate');
+const { login, createUser } = require('./controllers/users');
+const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/errorsHandler');
-const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('./middlewares/cors');
-const router = require('./routes/index');
+const NotFoundError = require('./errors/not-found-err');
+const { REGEX_URL } = require('./utils/constants');
 
-const { PORT = 3000, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { PORT = 3000 } = process.env;
 
 const app = express();
 
-app.use(cors);
+const usersRouter = require('./routes/users');
+const cardsRouter = require('./routes/cards');
 
-mongoose.connect(MONGO_URL, {
-  useNewUrlParser: true,
+app.use((req, res, next) => {
+  req.user = {
+    _id: '64e89d9c013056d35ee2a551',
+  };
+
+  next();
 });
+
+app.use(helmet());
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -34,19 +43,34 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 
 app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
-app.use(requestLogger);
+app.post('/signup', celebrate({
+  body: Joi.object().keys({
+    email: Joi.string().required().email(),
+    password: Joi.string().required(),
+    name: Joi.string().min(2).max(30),
+    about: Joi.string().min(2).max(30),
+    avatar: Joi.string().regex(REGEX_URL),
+  }),
+}), createUser);
 
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
+app.post('/signin', celebrate({
+  body: Joi.object().keys({
+    email: Joi.string().required().email(),
+    password: Joi.string().required(),
+  }),
+}), login);
+
+app.use(auth);
+
+app.use('/users', usersRouter);
+
+app.use('/cards', cardsRouter);
+
+app.use('/*', (req, res, next) => {
+  next(new NotFoundError('Запрашиваемый роут не найден'));
 });
-
-app.use(router);
-
-app.use(errorLogger);
 
 app.use(errors());
 
